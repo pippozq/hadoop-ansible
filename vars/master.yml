@@ -1,0 +1,5 @@
+---
+jvm_home: "/usr/lib/jvm"
+java_packages:
+ - "java-1.8.0-openjdk"
+ - "java-1.8.0-openjdk-devel"

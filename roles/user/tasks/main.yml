@@ -1,0 +1,16 @@
+---
+- name: Add User 
+  user: name={{user}} shell=/bin/bash groups={{group}} append=yes
+  when: add_user
+
+
+- name: Check Public Key
+  shell: "ls /home/{{ user }}/.ssh|grep '.pub' |wc -l"
+  register: key_exist
+
+- name: Generate Public key
+  expect: 
+    command: /bin/bash -c "su {{user}} -c 'ssh-keygen -t rsa'"
+    responses:
+        (?i)Enter: ''
+  when: key_exist.stdout == '0'

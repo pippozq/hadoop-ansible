@@ -1,0 +1,13 @@
+- hosts: master 
+  remote_user: root
+  vars_files:
+   - vars/user.yml
+   - vars/master.yml
+  vars:
+     add_user: true
+  roles:
+    - basic
+    - user
+    - authorized
+    - java
+
