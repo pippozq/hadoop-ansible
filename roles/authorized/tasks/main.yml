@@ -1,11 +1,5 @@
 ---
-- name: Get Lastest Public From Hadoop Master
-  fetch: 
-    src: /home/{{ user }}/.ssh/id_rsa.pub
-    dest: /tmp/id_{{ ansible_host }}_{{ user }}.pub
-    flat: yes
-
 - name: Add Hadoop Public Key 
   authorized_key: 
     user={{ user }} 
-    key="{{ lookup('file', '/tmp/id_{{ansible_host}}_{{user}}.pub') }}"
+    key="{{ lookup('file', '/tmp/id_{{master_ip}}_{{user}}.pub') }}"

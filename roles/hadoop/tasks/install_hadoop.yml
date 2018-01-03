@@ -1,0 +1,6 @@
+---
+- name: Copy Hadoop
+  copy: src={{ download_path }}/hadoop-{{hadoop_version}}.tar.gz dest=/tmp owner={{ user }} mode=755
+  
+- name: Unzip Hadoop
+  shell: "tar zxf /tmp/hadoop-{{hadoop_version}}.tar.gz -C {{ hadoop_path }}"

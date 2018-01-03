@@ -1,0 +1,30 @@
+
+# Add Master Public Key
+- hosts: master 
+  remote_user: root
+  vars_files:
+   - vars/user.yml
+   - vars/var_basic.yml
+   - vars/var_workers.yml
+  roles:
+    - fetch_public_key
+
+- hosts: workers 
+  remote_user: root
+  vars_files:
+   - vars/user.yml
+   - vars/var_basic.yml
+   - vars/var_workers.yml
+  vars:
+    add_user: true
+    generate_key: false
+    open_firewall: false
+    install_hadoop: true
+    config_hadoop: true
+  roles:
+    - user
+    - authorized
+    - java
+    - hadoop
+
+

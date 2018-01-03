@@ -1,0 +1,15 @@
+---
+- name: Copy Hadoop core-site.xml
+  template: src=core-site.xml dest={{ hadoop_config_path }} mode=644 owner={{ user }} group = {{ group }}
+
+- name: Copy Hadoop hdfs-site.xml
+  template: src=hdfs-site.xml dest={{ hadoop_config_path }} mode=644 owner={{ user }} group = {{ group }}
+
+- name: Copy Hadoop mapred-site.xml
+  template: src=mapred-site.xml dest={{ hadoop_config_path }} mode=644 owner={{ user }} group = {{ group }}
+
+- name: Copy Hadoop yarn-site.xml
+  template: src=yarn-site.xml dest={{ hadoop_config_path }} mode=644 owner={{ user }} group = {{ group }}
+
+- name: Copy Hadoop workers
+  template: src=workers dest={{ hadoop_config_path }} mode=644 owner={{ user }} group = {{ group }}

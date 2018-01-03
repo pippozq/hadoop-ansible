@@ -1,0 +1,20 @@
+---
+- name: Create Hadoop Path
+  file: 
+    path: "{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - "{{ hadoop_create_path }}"
+
+
+- include: install_hadoop.yml
+  when: install_hadoop
+
+- include: config_hadoop.yml
+  when: config_hadoop
+
+- include: redhat.yml
+  when: ansible_os_family == 'RedHat'

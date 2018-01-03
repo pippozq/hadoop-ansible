@@ -2,12 +2,17 @@
   remote_user: root
   vars_files:
    - vars/user.yml
-   - vars/master.yml
+   - vars/var_basic.yml
+   - vars/var_master.yml
   vars:
      add_user: true
+     generate_key: true
+     open_firewall: true
+     install_hadoop: true
+     config_hadoop: true
   roles:
-    - basic
     - user
+    - fetch_public_key
     - authorized
     - java
-
+    - hadoop
