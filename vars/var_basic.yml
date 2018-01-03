@@ -9,7 +9,6 @@ java_packages:
 
 # hadoop basic vars
 download_path: "/home/pippo/Downloads"
-hadoop_download_url: "http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-3.0.0/hadoop-3.0.0.tar.gz"
 hadoop_version: "3.0.0"
 hadoop_path: "/home/hadoop"
 hadoop_config_path: "/home/hadoop/hadoop-{{hadoop_version}}/etc/hadoop"
@@ -61,10 +60,6 @@ hdfs_site_properties:
     "name":"dfs.webhdfs.enabled",
     "value":"true"
   }
-  # - {
-  #   "name":"dfs.namenode.datanode.registration.ip-hostname-check",
-  #   "value": "false"
-  # }
 
 mapred_site_properties:
  - {
@@ -80,11 +75,11 @@ mapred_site_properties:
    "value":"HADOOP_MAPRED_HOME=$HADOOP_COMMON_HOME"
  }
 
-yarn_resourcemanager_port: 18040
-yarn_resourcemanager_scheduler_port: 18030
-yarn_resourcemanager_webapp_port: 18088
-yarn_resourcemanager_tracker_port: 18025
-yarn_resourcemanager_admin_port: 18141
+yarn_resourcemanager_port: 8040
+yarn_resourcemanager_scheduler_port: 8030
+yarn_resourcemanager_webapp_port: 8088
+yarn_resourcemanager_tracker_port: 8025
+yarn_resourcemanager_admin_port: 8141
 
 yarn_site_properties:
   - {
@@ -105,7 +100,7 @@ yarn_site_properties:
   }
   - {
     "name": "yarn.resourcemanager.admin.address",
-    "value": "{{ master_hostname }}: {{ yarn_resourcemanager_admin_port }}"
+    "value": "{{ master_hostname }}:{{ yarn_resourcemanager_admin_port }}"
   }
   - {
     "name": "yarn.nodemanager.aux-services",
