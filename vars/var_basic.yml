@@ -15,11 +15,13 @@ hadoop_config_path: "/home/hadoop/hadoop-{{hadoop_version}}/etc/hadoop"
 hadoop_tmp: "/home/hadoop/tmp"
 hadoop_dfs_name: "/home/hadoop/dfs/name"
 hadoop_dfs_data: "/home/hadoop/dfs/data"
+hadoop_log_path: "/home/hadoop/hadoop_logs"
 
 hadoop_create_path:
   - "{{ hadoop_tmp }}"
   - "{{ hadoop_dfs_name }}"
   - "{{ hadoop_dfs_data }}"
+  - "{{ hadoop_log_path }}"
 
 
 # hadoop configration 
