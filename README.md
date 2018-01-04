@@ -3,6 +3,7 @@
 - Now Support CentOS 7.x
 - JDK is  Openjdk-1.8
 - Hadoop is the latest version 3.0.0
+- Hive is the version 2.3.2
 
 ## Before Install
 Use DNS Server or update /etc/hosts for all servers
