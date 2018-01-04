@@ -1,0 +1,12 @@
+---
+- name: Open Firewall
+  firewalld:
+    port: '{{item}}/tcp'
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
+  with_items:
+    - '{{firewall_ports}}'
+  when: open_firewall
+  ignore_errors: true

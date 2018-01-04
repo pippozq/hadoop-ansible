@@ -1,0 +1,13 @@
+---
+- name: Init hdfs path
+  shell: su {{ user }} -c "hadoop fs -mkdir -p {{ item }}"
+  with_items:
+    - "{{ hive_hdfs_path }}"
+
+- name: Change Authority
+  shell: su {{ user }} -c "hadoop fs -chmod -R 777 {{ item }}"
+  with_items:
+    - "{{ hive_hdfs_path }}"
+
+- name: Init Hive
+  shell: su {{ user }} -c "schematool -initSchema -dbType {{ db_type }}"

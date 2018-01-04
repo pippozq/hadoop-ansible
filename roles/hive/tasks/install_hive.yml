@@ -1,0 +1,6 @@
+---
+- name: Copy Hive
+  copy: src={{ download_path }}/apache-hive-{{hive_version}}-bin.tar.gz dest=/tmp owner={{ user }} mode=755
+  
+- name: Unzip Hive
+  shell: "tar zxf /tmp/apache-hive-{{hive_version}}-bin.tar.gz -C {{ hive_path }}"
