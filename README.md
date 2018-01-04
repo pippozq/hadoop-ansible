@@ -312,6 +312,12 @@ firewall_ports:
     - hive
 
 ```
+4. run it
+
+```
+ansible-playbook -i hosts/host hive.yml
+
+```
 
 
 ### License
