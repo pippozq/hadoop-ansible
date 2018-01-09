@@ -192,7 +192,8 @@ ansible-playbook -i hosts/host master.yml
   vars:
     add_user: true
     generate_key: false # workers just use master ssh public key
-    open_firewall: false 
+    open_firewall: false
+    disable_firewall: true  # shutdown firewall on workers 
     install_hadoop: true
     config_hadoop: true
   roles:

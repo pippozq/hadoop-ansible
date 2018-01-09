@@ -19,6 +19,7 @@
     add_user: true
     generate_key: false
     open_firewall: false
+    disable_firewall: true
     install_hadoop: true
     config_hadoop: true
   roles:
